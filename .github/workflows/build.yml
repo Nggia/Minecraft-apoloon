@@ -1,0 +1,25 @@
+name: Build-Apollon-SO
+on: 
+  workflow_dispatch: # Đây là dòng quan trọng nhất để hiện nút bấm
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup NDK
+        uses: nviolet/setup-ndk@v1
+        with:
+          ndk-version: r25c
+          
+      - name: Compile
+        run: |
+          cd jni
+          ndk-build
+          
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Apollon-SO-Files
+          path: libs/
