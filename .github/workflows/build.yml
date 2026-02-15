@@ -1,14 +1,25 @@
-LOCAL_PATH := $(call my-dir)
-include $(CLEAR_VARS)
-LOCAL_MODULE    := Apollon
-LOCAL_SRC_FILES := main.cpp \
-                   ImGui/imgui.cpp \
-                   ImGui/imgui_draw.cpp \
-                   ImGui/imgui_widgets.cpp \
-                   ImGui/imgui_tables.cpp \
-                   ImGui/backends/imgui_impl_android.cpp \
-                   ImGui/backends/imgui_impl_opengl3.cpp
-LOCAL_LDLIBS    := -llog -landroid -lGLESv3 -lEGL -lz
-LOCAL_CPPFLAGS  := -std=c++17 -fexceptions -frtti
-LOCAL_C_INCLUDES := $(LOCAL_PATH) $(LOCAL_PATH)/ImGui
-include $(BUILD_SHARED_LIBRARY)
+name: Build-Apollon-SO
+on: 
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup NDK
+        uses: nviolet/setup-ndk@v1
+        with:
+          ndk-version: r25c
+          
+      - name: Compile
+        run: |
+          cd jni
+          ndk-build
+          
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Apollon-SO-Files
+          path: libs/
