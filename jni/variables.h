@@ -39,11 +39,13 @@ struct vec3_t {
 struct PlayerStruct {
     void* address;
     std::string nameTag;
+    std::string nickname; // Thêm cái này
     vec3_t position;
     float distance;
-    // Thêm các trường khác nếu code của bạn cần
+    bool isBot;           // Thêm cái này
+    bool isFriend;        // Thêm cái này
+    bool isProtected;     // Thêm cái này
 };
-
 // Khai báo giả (Forward Declaration) cho các class game
 class ClientInstance;
 class LocalPlayer;
