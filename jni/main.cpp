@@ -61,6 +61,10 @@ namespace fs = ghc::filesystem;
 #include <sys/system_properties.h>
 #include <EGL/egl.h>
 #include <GLES3/gl3.h>
+#ifdef IMGUI_IMPL_OPENGL_ES2
+#undef IMGUI_IMPL_OPENGL_ES2
+#endif
+#define IMGUI_IMPL_OPENGL_ES2
 #include "imgui_impl_android.h"
 #include "imgui_impl_opengl3.h"
 
