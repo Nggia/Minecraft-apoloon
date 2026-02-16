@@ -12,11 +12,9 @@
 #include "offsets.h"
 
 #ifndef OBFUSCATE
-#define OBFUSCATE(str) str
 #endif
 
 #ifndef oxorany
-#define oxorany(str) str
 #endif
 
 
