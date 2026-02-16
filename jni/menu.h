@@ -1,6 +1,8 @@
 #include "Images/YT.h"
 #include "Images/Telegram.h"
 #include "Images/Discord.h"
+#include "variables.h"
+#include "offsets.h"
 
 #include "Images/amethyst_shard.h"
 #include "Images/coal.h"
