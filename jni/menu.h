@@ -55,6 +55,7 @@ extern float screenWidth, screenHeight;
 extern float redd, greenn, bluee, scaleGlobal, calcResX;
 extern bool xrayDefault, deathPosition, esp;
 extern vec3_t CameraPos; // Chuyển từ void* sang vec3_t cho khớp logic
+extern bool osmtBoost;
 
 #include "Images/amethyst_shard.h"
 #include "Images/coal.h"
