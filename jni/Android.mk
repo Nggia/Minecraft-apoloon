@@ -1,9 +1,10 @@
 LOCAL_PATH := $(call my-dir)
+
 include $(CLEAR_VARS)
 
 LOCAL_MODULE    := Apollon
 
-# Khai báo các file .cpp chính
+# Liệt kê chính xác các file .cpp cần biên dịch
 LOCAL_SRC_FILES := main.cpp \
                    ImGui/imgui.cpp \
                    ImGui/imgui_draw.cpp \
@@ -18,7 +19,7 @@ LOCAL_SRC_FILES := main.cpp \
 LOCAL_LDLIBS    := -llog -landroid -lGLESv3 -lEGL -lz
 LOCAL_CPPFLAGS  := -std=c++17 -fexceptions -frtti -Wno-error=format-security
 
-# Khai báo đường dẫn để GitHub tìm thấy file .h trong các folder bạn đã up
+# Khai báo tất cả các folder để tìm file .h (Khớp với ảnh bạn vừa chụp)
 LOCAL_C_INCLUDES := $(LOCAL_PATH) \
                     $(LOCAL_PATH)/ImGui \
                     $(LOCAL_PATH)/Includes \
@@ -29,6 +30,7 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH) \
                     $(LOCAL_PATH)/ghc \
                     $(LOCAL_PATH)/glm \
                     $(LOCAL_PATH)/Arm64 \
-                    $(LOCAL_PATH)/Substrate
+                    $(LOCAL_PATH)/Substrate \
+                    $(LOCAL_PATH)/libraries
 
 include $(BUILD_SHARED_LIBRARY)
