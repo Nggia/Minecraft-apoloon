@@ -1189,8 +1189,8 @@ void BeginDraw() {
                     
                         ImDrawList* draw_list = ImGui::GetBackgroundDrawList();
                         if (xrayDefault) RenderOreESP(draw_list, CameraPos, currentFov, currentViewMatrix);
-                        if (deathPosition) RenderDeathPosition(draw_list, CameraPos, currentFov, currentViewMatrix);
-                        if (esp) RenderESP(draw_list, CameraPos, currentFov, currentViewMatrix);
+if (deathPosition) RenderDeathPosition(draw_list, CameraPos, currentFov, currentViewMatrix);
+if (esp) RenderESP(draw_list, CameraPos, currentFov, currentViewMatrix);
                     }
                 }
 			}
