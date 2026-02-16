@@ -1652,3 +1652,10 @@ JNI_OnLoad(JavaVM *vm, void *reserved) {
 JNIEXPORT void JNICALL
 JNI_OnUnload(JavaVM *vm, void *reserved) {}
 
+void performRGBChange() {
+    // Để trống hoặc viết logic đổi màu RGB của bạn ở đây
+}
+
+void Patches() {
+    // Để trống hoặc viết logic patch offset của bạn ở đây
+}
