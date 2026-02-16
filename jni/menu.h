@@ -1,18 +1,17 @@
-#include "Images/YT.h"
-#include "Images/Telegram.h"
-#include "Images/Discord.h"
-#include "variables.h"
-#include "offsets.h"
 #include <GLES2/gl2.h>
 #include <GLES2/gl2ext.h>
 #include <cstdint>
+#include <vector>
+#include <string>
+#include <imgui.h>
+#include <imgui_internal.h>
+#include <glm/glm.hpp>
 
-// Khai báo hàm nếu nó nằm ở file .cpp khác
-extern "C" {
-    unsigned int CreateTextureFromMemoryPNG(unsigned char* data, int len);
-}
+// --- 1. Include các file cấu hình hệ thống ---
+#include "variables.h"
+#include "offsets.h"
 
-// 1. Định nghĩa các Macro bảo mật và tiện ích
+// --- 2. Macro bảo mật và tiện ích ---
 #ifndef oxorany
 #define oxorany(str) str
 #endif
@@ -21,12 +20,27 @@ extern "C" {
 #define OBFUSCATE(str) str
 #endif
 
-// 2. Khai báo các hàm giao diện còn thiếu
+// --- 3. Khai báo mượn biến (Extern) từ main.cpp ---
+// Lưu ý: Tuyệt đối không gán giá trị (=) tại đây để tránh lỗi Redefinition
+extern float screenWidth, screenHeight;
+extern float redd, greenn, bluee;
+extern float scaleGlobal, calcResX;
+extern bool xrayDefault, deathPosition, esp;
+extern bool osmtBoost;
+extern ImGuiWindow* g_window;
+extern void* currentViewMatrix;
+extern float currentFov;
+extern vec3_t CameraPos; 
+
+// --- 4. Khai báo các hàm giao diện ---
 void ImGuiColoredText(std::string text);
 void insertionSortPlayers(std::vector<void*>& list); 
 void AddNotification(const char* text, float duration, ImVec4 color);
+void DrawBackgroundText(const char* text, float x, float y, ImVec4 color, ImVec4 bgColor);
+void performRGBChange();
+void Patches();
 
-// 3. Cấu trúc Class SDK (Sửa lỗi Incomplete Type)
+// --- 5. Cấu trúc Class SDK Minecraft ---
 class LevelRendererCamera {
 public:
     glm::vec2 getFov();
@@ -44,19 +58,20 @@ public:
     glm::mat4 getViewMatrix(); 
 };
 
-// 4. Khai báo hàm ESP (Đồng bộ kiểu dữ liệu để không lỗi "No matching function")
+// --- 6. Khai báo hàm vẽ ESP ---
 void RenderOreESP(ImDrawList* d, vec3_t pos, glm::vec2 fov, glm::mat4 mat);
 void RenderDeathPosition(ImDrawList* d, vec3_t pos, glm::vec2 fov, glm::mat4 mat);
 void RenderESP(ImDrawList* d, vec3_t pos, glm::vec2 fov, glm::mat4 mat);
-void DrawBackgroundText(const char* text, float x, float y, ImVec4 color, ImVec4 bgColor);
 
-// 5. Khai báo các biến hệ thống
-extern float screenWidth, screenHeight;
-extern float redd, greenn, bluee, scaleGlobal, calcResX;
-extern bool xrayDefault, deathPosition, esp;
-extern vec3_t CameraPos; // Chuyển từ void* sang vec3_t cho khớp logic
-extern bool osmtBoost;
+// --- 7. Khai báo Texture (Từ file .cpp khác) ---
+extern "C" {
+    unsigned int CreateTextureFromMemoryPNG(unsigned char* data, int len);
+}
 
+// --- 8. Include danh sách hình ảnh (Icons) ---
+#include "Images/YT.h"
+#include "Images/Telegram.h"
+#include "Images/Discord.h"
 #include "Images/amethyst_shard.h"
 #include "Images/coal.h"
 #include "Images/copper_ingot.h"
@@ -70,14 +85,6 @@ extern bool osmtBoost;
 #include "Images/quartz.h"
 #include "Images/barrel_side.h"
 #include "Images/obsidian.h"
-// 1. Định nghĩa OBFUSCATE nếu chưa có (để máy không báo lỗi undeclared)
-#ifndef OBFUSCATE
-#define OBFUSCATE(str) str
-#endif
-
-// 2. Khai báo calcResX (Thường là một biến float được tính ở main.cpp)
-extern float calcResX;
-
 #include "Images/horse.h"
 #include "Images/villager.h"
 #include "Images/iron_golem.h"
@@ -121,11 +128,7 @@ extern float calcResX;
 #include "Images/zombie_piglin.h"
 #include "Images/zombie_villager.h"
 
-float screenWidth = 1920.0f;
-float screenHeight = 1080.0f;
-float redd = 255.0f, greenn = 255.0f, bluee = 255.0f;
-float scaleGlobal = 1.0f;
-ImGuiWindow* g_window = nullptr;
+// --- KẾT THÚC PHẦN ĐẦU FIX ---
 
 void TickFunctions() {
 	if (auraType < 2) {
