@@ -53,6 +53,24 @@ namespace fs = ghc::filesystem;
 #include "variables.h"
 #include "menu.h"
 
+// Định nghĩa giả lập để trình biên dịch hiểu các hàm thành viên
+class LevelRenderer {}; // Định nghĩa trống để hết lỗi undeclared LevelRenderer
+
+class ClientInstance {
+public:
+    // Virtual table (vtable) giả lập - thứ tự phải khớp với version game
+    // Nếu bạn chỉ gọi hàm qua Offset thủ công thì có thể dùng cách khác, 
+    // nhưng đây là cách để code menu.h không báo lỗi:
+    virtual void destructor(); 
+    virtual void dummy1(); 
+    // ... thêm các dummy nếu cần ...
+    
+    // Khai báo hàm bạn đang dùng trong menu.h
+    glm::mat4 getViewMatrix();
+    LevelRenderer* getLevelRenderer();
+};
+
+
 // Android & Graphics
 #include <android/native_activity.h>
 #include <android/asset_manager.h>
