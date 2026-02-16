@@ -1,3 +1,20 @@
+#pragma once
+#include <string>
+#include <vector>
+#include "Includes/nlohmann/json.hpp"
+
+using json = nlohmann::json;
+
+// Định nghĩa các kiểu vector nếu chưa có
+struct vec2_t { float x, y; vec2_t(float _x, float _y) : x(_x), y(_y) {} vec2_t() : x(0), y(0) {} };
+struct vec3_t { float x, y, z; vec3_t(float _x, float _y, float _z) : x(_x), y(_y), z(_z) {} vec3_t() : x(0), y(0), z(0) {} };
+struct vec3_ti { int x, y, z; };
+
+// Khai báo giả (Forward Declaration) cho các class game
+class ClientInstance;
+class LocalPlayer;
+class Player;
+
 json cfg;
 bool fullBright, fogEnable, fastDrop, noHurtCam, noCamDist, noBoatRotation,
 noCamSleep, placeCam, unlockMarket, noSlowDown, fastFall,
