@@ -298,8 +298,8 @@ void BeginDraw() {
 					 ImGui::SetWindowFontScale(1.0);
 					 ImGui::Separator();
                      ImGui::Text("%s", OBFUSCATE("Обновление 4.6:"));
-					 ImGui::Text("%s", OBFUSCATE("\n- Обновлен Xray."));
-					 ImGui::Text("%s", OBFUSCATE("\n- Улучшен Anti Bot."));
+					 ImGui::Text("%s", OBFUSCATE("\n- Обновлен Xray.").c_str());
+ImGui::Text("%s", OBFUSCATE("\n- Улучшен Anti Bot.").c_str());
 					 ImGui::Text("%s", OBFUSCATE("\n- Удалена выдача XP (фикс разработчиками игры, позже попробую реализовать иначе)."));
 					 ImGui::Text("%s", OBFUSCATE("\n- Удалены некоторые функции из Movement (редкая используемость)."));
 					 ImGui::Text("%s", OBFUSCATE("\nПатч 4.62:"));
