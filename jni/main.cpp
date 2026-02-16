@@ -61,7 +61,7 @@ namespace fs = ghc::filesystem;
 #include <EGL/egl.h>
 #include <GLES3/gl3.h>
 #include "imgui_impl_android.h"
-#include "ImGui/backends/imgui_impl_opengl3.h"
+#include "imgui_impl_opengl3.h
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
