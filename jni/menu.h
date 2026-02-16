@@ -11,11 +11,6 @@
 #include "variables.h"
 #include "offsets.h"
 
-// --- 2. Macro bảo mật và tiện ích ---
-#ifndef oxorany
-#define oxorany(str) str
-#endif
-
 #ifndef OBFUSCATE
 #define OBFUSCATE(str) str
 #endif
