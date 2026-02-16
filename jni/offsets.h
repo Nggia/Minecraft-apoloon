@@ -1,3 +1,6 @@
+#pragma once  // Thêm dòng này vào đầu file
+enum Offsets {
+
 #if defined(__aarch64__)
 namespace Offsets64 {
 	enum Offsets64 {
