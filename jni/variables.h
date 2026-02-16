@@ -154,6 +154,7 @@ struct XrayOres {
 };
 
 vec3_t CameraPos;
+class Mob;
 ClientInstance *CI = NULL;
 LocalPlayer *localPlayer = NULL;
 vec2_t auraAngle(0, 0);
