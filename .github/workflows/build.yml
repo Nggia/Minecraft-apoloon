@@ -17,15 +17,24 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      # Tự động tải GLM (Xóa sạch nợ nần với đống file 0B)
-      - name: Install GLM Library
+      # Bước này sẽ tự dọn dẹp và tải các thư viện bị thiếu
+      - name: Install Libraries (GLM & JSON)
         run: |
           cd jni
+          
+          # 1. Xử lý thư viện GLM
           rm -rf glm
           git clone --depth 1 https://github.com/g-truc/glm.git
-          echo "GLM downloaded successfully!"
+          
+          # 2. Xử lý thư viện JSON (Sửa lỗi hedley.hpp)
+          # Xóa thư mục cũ để thay bằng bản Single-Header chuẩn
+          rm -rf Includes/nlohmann
+          mkdir -p Includes/nlohmann
+          curl -L https://github.com/nlohmann/json/releases/download/v3.11.3/json.hpp -o Includes/nlohmann/json.hpp
+          
+          echo "All libraries downloaded successfully!"
 
-      # Sử dụng NDK có sẵn trong runner (Không cần tải qua action bên ngoài)
+      # Sử dụng NDK có sẵn trong hệ thống GitHub Actions
       - name: Build with ndk-build
         run: |
           cd jni
@@ -33,7 +42,7 @@ jobs:
         env:
           ANDROID_NDK_HOME: ${{ env.ANDROID_NDK_LATEST_HOME }}
 
-      # Dùng v4 để sửa lỗi "Deprecated"
+      # Xuất file .so đã build xong
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
