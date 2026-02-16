@@ -11,6 +11,11 @@
 #include "variables.h"
 #include "offsets.h"
 
+#ifndef oxorany
+#define oxorany(str) str
+#endif
+
+
 #ifndef OBFUSCATE
 #define OBFUSCATE(str) str
 #endif
@@ -968,7 +973,7 @@ void BeginDraw() {
 				        ImGui::Combo(OBFUSCATE("Current Chams"), &chamsint, Chams, IM_ARRAYSIZE(Chams));
 				        if (chamsint > 1) {
                             ImGui::PushItemWidth(calcResX * 42);
-                            ImGui::ColorEdit3(OBFUSCATE("##Visible Color"), (float *) &visibleColor);
+                            ImGui::ColorEdit3(OBFUSCATE("##Visible Color"), (float *) &visibleColorV);
                             ImGui::SameLine();
                             ImGui::Checkbox(OBFUSCATE("RGB"), &enableRainbow);
 				        }
@@ -1227,9 +1232,9 @@ if (esp) RenderESP(draw_list, CameraPos, currentFov, currentViewMatrix);
 	 }
 	 
     if (enableRainbow) {
-        visibleColor.x = redd/255;
-        visibleColor.y = greenn/255;
-        visibleColor.z = bluee/255;
+        visibleColorV.x = redd/255;
+        visibleColorV.y = greenn/255;
+        visibleColorV.z = bluee/255;
     }
     if (enableRainbowWall) {
         inWallColor.x = redd/255;
