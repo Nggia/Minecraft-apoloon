@@ -16,7 +16,7 @@ LOCAL_SRC_FILES := main.cpp \
                    KittyMemory/KittyMemory.cpp \
                    KittyScanner/KittyScanner.cpp
 
-LOCAL_LDLIBS    := -llog -landroid -lGLESv3 -lEGL -lz
+LOCAL_LDLIBS := -llog -lGLESv2 -lEGL -landroid
 LOCAL_CPPFLAGS  := -std=c++17 -fexceptions -frtti -Wno-error=format-security
 
 # Khai báo tất cả các folder để tìm file .h (Khớp với ảnh bạn vừa chụp)
