@@ -17,6 +17,11 @@
 #ifndef oxorany
 #endif
 
+#pragma once
+#include "ENCRYPT/obfuscate.h" // Thêm dòng này để định nghĩa OBFUSCATE
+// ... các include khác
+
+
 
 // --- 3. Khai báo mượn biến (Extern) từ main.cpp ---
 // Lưu ý: Tuyệt đối không gán giá trị (=) tại đây để tránh lỗi Redefinition
