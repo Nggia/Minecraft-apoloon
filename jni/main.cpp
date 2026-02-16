@@ -1,11 +1,22 @@
 #include <imgui_internal.h> // Để hiểu ImGuiWindow
 
-// Khai báo các biến hệ thống
-float screenWidth = 1920, screenHeight = 1080;
-float redd = 255, greenn = 255, bluee = 255, scaleGlobal = 1.0f, calcResX = 1.0f;
-bool xrayDefault = false, deathPosition = false, esp = false;
-vec3_t CameraPos;
+// Biến hệ thống (Định nghĩa duy nhất tại đây)
+float screenWidth = 0;
+float screenHeight = 0;
+float redd = 255.0f, greenn = 255.0f, bluee = 255.0f;
+float scaleGlobal = 1.0f;
+float calcResX = 1.0f;
+bool xrayDefault = false;
+bool deathPosition = false;
+bool esp = false;
 bool osmtBoost = false;
+
+// Biến bổ trợ
+vec3_t CameraPos(0, 0, 0);
+ImGuiWindow* g_window = nullptr;
+bool g_Initialized = false;
+void* currentViewMatrix = nullptr;
+float currentFov = 70.0f;
 
 // Khai báo các hàm còn thiếu (Hàm giả để máy cho qua bước build)
 inline float calculateResolutionScale(float width, float height, int baseW, int baseH) { return 1.0f; }
