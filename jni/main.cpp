@@ -9,10 +9,6 @@ float calcResX = 1.0f;
 bool g_Initialized = false;
 ImGuiWindow* g_window = nullptr;
 
-// Các biến logic mod
-bool xrayDefault = false;
-bool deathPosition = false;
-bool esp = false;
 bool osmtBoost = false;
 
 void* currentViewMatrix = nullptr;
