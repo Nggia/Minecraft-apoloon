@@ -42,6 +42,7 @@ struct PlayerStruct {
     std::string nameTag;
     std::string nickname; // Thêm cái này
     vec3_t position;
+    vec3_t hitBox;
     float distance;
     bool isBot;           // Thêm cái này
     bool isFriend;        // Thêm cái này
