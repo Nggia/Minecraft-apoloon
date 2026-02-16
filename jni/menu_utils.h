@@ -500,7 +500,8 @@ void RenderESP(ImDrawList* draw_list, vec3_t cameraPos, glm::vec2 axisFov, glm::
             float healthY = screenTop.y - verticalSpacing * 1.5;
             float nametagY = screenTop.y - verticalSpacing;
 
-            if (bottomVisible) {
+            bool topVisible = bottomVisible; 
+                if (topVisible) {
                 if (espHealth) {
                     std::string healthText = std::to_string(player.health);
                     
