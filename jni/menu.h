@@ -12,6 +12,30 @@ extern "C" {
     unsigned int CreateTextureFromMemoryPNG(unsigned char* data, int len);
 }
 
+class LevelRenderer {
+public:
+    class LevelRendererCamera* getLevelRendererPlayer();
+};
+
+class ClientInstance {
+public:
+    LevelRenderer* getLevelRenderer();
+};
+
+// Khai báo các hàm vẽ còn thiếu
+void RenderOreESP(ImDrawList* d, void* pos, float fov, void* mat);
+void RenderDeathPosition(ImDrawList* d, void* pos, float fov, void* mat);
+void RenderESP(ImDrawList* d, void* pos, float fov, void* mat);
+void DrawBackgroundText(const char* text, float x, float y, ImVec4 color, ImVec4 bgColor);
+
+// Khai báo các biến bị thiếu trong menu
+extern bool xrayDefault;
+extern bool deathPosition;
+extern bool esp;
+extern void* CameraPos;
+extern float currentFov;
+extern void* currentViewMatrix;
+
 #include "Images/amethyst_shard.h"
 #include "Images/coal.h"
 #include "Images/copper_ingot.h"
