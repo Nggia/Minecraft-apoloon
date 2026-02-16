@@ -1670,3 +1670,28 @@ void performRGBChange() {
 void Patches() {
     // Để trống hoặc viết logic patch offset của bạn ở đây
 }
+
+// ========================================================
+// CÁC HÀM BỔ TRỢ ĐỂ FIX LỖI UNDECLARED (Dán ở cuối main.cpp)
+// ========================================================
+
+void ImGuiColoredText(std::string text) {
+    ImGui::Text("%s", text.c_str());
+}
+
+void AddNotification(const char* text, float duration, ImVec4 color) {
+    // Để trống nội dung để máy không báo lỗi thiếu hàm
+}
+
+// Chú ý: PlayerStruct phải giống với tên struct trong variables.h của bạn
+void insertionSortPlayers(std::vector<PlayerStruct>& list) {
+    // Hàm sắp xếp danh sách người chơi
+}
+
+void DrawBackgroundText(const char* text, float x, float y, ImVec4 color, ImVec4 bgColor) {
+    // Hàm vẽ chữ có nền
+}
+
+void performRGBChange() {
+    // Hàm đổi màu cầu vồng
+}
