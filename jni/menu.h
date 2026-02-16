@@ -34,7 +34,7 @@ extern vec3_t CameraPos;
 
 // --- 4. Khai báo các hàm giao diện ---
 void ImGuiColoredText(std::string text);
-void insertionSortPlayers(std::vector<void*>& list); 
+void insertionSortPlayers(std::vector<PlayerStruct>& list);
 void AddNotification(const char* text, float duration, ImVec4 color);
 void DrawBackgroundText(const char* text, float x, float y, ImVec4 color, ImVec4 bgColor);
 void performRGBChange();
