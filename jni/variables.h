@@ -17,6 +17,12 @@ struct ColorVec3 { float x, y, z; };
 ColorVec3 inWallColor = {1.0f, 1.0f, 1.0f};
 ColorVec3 visibleColor = {1.0f, 1.0f, 1.0f};
 
+struct vec2_t {
+    float x, y;
+    vec2_t(float _x, float _y) : x(_x), y(_y) {}
+    vec2_t() : x(0), y(0) {}
+};
+
 // Định nghĩa các kiểu vector nếu chưa có
 struct vec3_t { 
     float x, y, z; 
