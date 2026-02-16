@@ -1,6 +1,6 @@
 int rgb = 1;
 bool rF = true, gF, bF = true, rF_, gF_, bF_;
-float redd = 255, greenn = 0, bluee = 255;
+extern float redd, greenn, bluee;
 void performRGBChange() {
 switch (rgb) {
  case 0: {
