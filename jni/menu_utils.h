@@ -432,7 +432,7 @@ void RenderESP(ImDrawList* draw_list, vec3_t cameraPos, glm::vec2 axisFov, glm::
                 currentColor = IM_COL32(255, 0, 0, 255);
             }
 
-            float correctedPosY = player.position->y - 1.62f;
+            float correctedPosY = player.position.y - 1.62f;
             float halfYHitBox = player.hitBox.y / 2.0f;
             float halfXHitBox = player.hitBox.x / 2.0f;
             
@@ -460,8 +460,7 @@ void RenderESP(ImDrawList* draw_list, vec3_t cameraPos, glm::vec2 axisFov, glm::
             }
 
             glm::vec2 screenBottom, screenTop;
-            bool bottomVisible = OWorldToScreen(camPos, glm::vec3(player.position->x, correctedPosY, player.position->z), screenBottom, axisFov, displaySize, viewMatrix);
-            bool topVisible = OWorldToScreen(camPos, glm::vec3(player.position->x, correctedPosY + player.hitBox.y, player.position->z), screenTop, axisFov, displaySize, viewMatrix);
+            bool bottomVisible = OWorldToScreen(camPos, glm::vec3(player.position.x, correctedPosY, player.position.z), screenBottom, axisFov, displaySize, viewMatrix);
 			
             if (allVisible && espBox) {
                 draw_list->AddLine(ImVec2(screenPoints[0].x, screenPoints[0].y), ImVec2(screenPoints[1].x, screenPoints[1].y), outlineColor, outlineThickness);
