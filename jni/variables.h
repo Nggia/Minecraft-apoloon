@@ -452,9 +452,9 @@ void saveConfig(std::string path) {
     cfg["inWallColor.x"] = inWallColor.x;
     cfg["inWallColor.y"] = inWallColor.y;
     cfg["inWallColor.z"] = inWallColor.z;
-    cfg["visibleColor.x"] = visibleColor.x;
-    cfg["visibleColor.y"] = visibleColor.y;
-    cfg["visibleColor.z"] = visibleColor.z;
+    cfg["visibleColor.x"] = visibleColorV.x;
+    cfg["visibleColor.y"] = visibleColorV.y;
+    cfg["visibleColor.z"] = visibleColorV.z;
 
     writeFile(path, cfg.dump());
 }
@@ -658,7 +658,9 @@ void loadConfig(std::string path){
     inWallColor.x = cfg.value("inWallColor.x", inWallColor.x);
     inWallColor.y = cfg.value("inWallColor.y", inWallColor.y);
     inWallColor.z = cfg.value("inWallColor.z", inWallColor.z);
-    visibleColorV.x = cfg.value("visibleColorV.x", visibleColorV.x);
-    visibleColorV.y = cfg.value("visibleColorV.y", visibleColorV.y);
-    visibleColorV.z = cfg.value("visibleColorV.z", visibleColorV.z);
+// Trong hàm LoadConfig
+visibleColorV.x = cfg.value("visibleColor.x", visibleColorV.x);
+visibleColorV.y = cfg.value("visibleColor.y", visibleColorV.y);
+visibleColorV.z = cfg.value("visibleColor.z", visibleColorV.z);
+
 }
