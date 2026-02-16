@@ -597,7 +597,7 @@ void RenderESP(ImDrawList* draw_list, vec3_t cameraPos, glm::vec2 axisFov, glm::
                 }
                 
                 if (espDistance) {
-                    float distance = distanceTo(&cameraPos, player.position);
+                    float distance = distanceTo(&cameraPos, &player.position);
                     std::string distanceText = std::to_string(static_cast<int>(distance)) + "m";
 
                     ImVec2 textSize = ImGui::CalcTextSize(distanceText.c_str());
