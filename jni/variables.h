@@ -7,7 +7,7 @@ using json = nlohmann::json;
 
 // Khai báo các biến bị thiếu để hết lỗi compile
 bool panic = false;
-float osmtBoost = 0.0f;
+bool osmtBoost = false;
 bool enableRainbow = false;
 bool enableRainbowWall = false;
 bool xrayCaves = false;
