@@ -1,14 +1,20 @@
-#include <imgui_internal.h> // Để hiểu ImGuiWindow
+#include <imgui_internal.h>
 
-// Biến hệ thống (Định nghĩa duy nhất tại đây)
-float screenWidth = 0;
-float screenHeight = 0;
+// CHỈ GIỮ LẠI ĐOẠN NÀY Ở ĐẦU FILE MAIN.CPP
+float screenWidth = 1920.0f;
+float screenHeight = 1080.0f;
 float redd = 255.0f, greenn = 255.0f, bluee = 255.0f;
 float scaleGlobal = 1.0f;
 float calcResX = 1.0f;
-
-ImGuiWindow* g_window = nullptr;
 bool g_Initialized = false;
+ImGuiWindow* g_window = nullptr;
+
+// Các biến logic mod
+bool xrayDefault = false;
+bool deathPosition = false;
+bool esp = false;
+bool osmtBoost = false;
+
 void* currentViewMatrix = nullptr;
 float currentFov = 70.0f;
 
@@ -80,7 +86,6 @@ namespace fs = ghc::filesystem;
 #include "ENCRYPT/oxorany.h"
 #include "RGB.h"
 #include "Chams.h"
-float calcResX = 1.0f; // Hoặc giá trị mặc định nào đó bạn đang dùng
 
 // Các định nghĩa kiểu dữ liệu (Typedefs)
 typedef uint32_t _DWORD;
@@ -92,11 +97,6 @@ typedef uint64_t _QWORD;
 #define _BYTE unsigned char
 
 using json = nlohmann::json;
-int screenWidth = 0;
-int screenHeight = 0;
-float scaleGlobal, calcResX;
-bool g_Initialized = false;
-ImGuiWindow* g_window = NULL;
 string GameName = oxorany("com.mojang.minecraftpe");
 const char* MineLib = OBFUSCATE("libminecraftpe.so");
 
