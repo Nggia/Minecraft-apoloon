@@ -1,4 +1,3 @@
-#include "font_data.h"
 #include <imgui_internal.h>
 
 // CHỈ GIỮ LẠI ĐOẠN NÀY Ở ĐẦU FILE MAIN.CPP
@@ -186,7 +185,7 @@ Java_com_mojang_minecraftpe_platforms_Platform2_init(JNIEnv* env, jclass cls) {
         0,
     };
 
-    io.Fonts->AddFontFromMemoryTTF(const_cast<std::uint8_t*>(Custom3), sizeof(Custom3), 30.f, &CustomFont, ranges);
+   // io.Fonts->AddFontFromMemoryTTF(const_cast<std::uint8_t*>(Custom3), sizeof(Custom3), 30.f, &CustomFont, ranges);
 
 	static bool loadedCfg = false;
      if (!loadedCfg){
