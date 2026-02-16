@@ -29,7 +29,7 @@ namespace fs = ghc::filesystem;
 #include "Includes/nlohmann/json.hpp"
 #include "Includes/json.h"
 
-// Biến và Menu (Chỉ để ở đây, không lặp lại ở trên)
+// Biến và Menu (Phải để variables TRƯỚC menu)
 #include "variables.h"
 #include "menu.h"
 
@@ -62,7 +62,7 @@ namespace fs = ghc::filesystem;
 #include "RGB.h"
 #include "Chams.h"
 
-// Typedefs của bạn
+// Các định nghĩa kiểu dữ liệu (Typedefs)
 typedef uint32_t _DWORD;
 typedef uint64_t _QWORD;
 #define __int8 char
