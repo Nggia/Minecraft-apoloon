@@ -35,6 +35,15 @@ struct vec3_t {
     vec3_t& operator=(const glm::vec3& v) { x = v.x; y = v.y; z = v.z; return *this; }
 };
 
+// Thêm/Sửa trong jni/variables.h
+struct PlayerStruct {
+    void* address;
+    std::string nameTag;
+    vec3_t position;
+    float distance;
+    // Thêm các trường khác nếu code của bạn cần
+};
+
 // Khai báo giả (Forward Declaration) cho các class game
 class ClientInstance;
 class LocalPlayer;
