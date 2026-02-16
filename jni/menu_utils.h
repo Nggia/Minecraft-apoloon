@@ -437,14 +437,14 @@ void RenderESP(ImDrawList* draw_list, vec3_t cameraPos, glm::vec2 axisFov, glm::
             float halfXHitBox = player.hitBox.x / 2.0f;
             
             glm::vec3 points[8] = {
-                glm::vec3(player.position->x - halfXHitBox, correctedPosY, player.position->z - halfXHitBox),
-                glm::vec3(player.position->x + halfXHitBox, correctedPosY, player.position->z - halfXHitBox),
-                glm::vec3(player.position->x + halfXHitBox, correctedPosY, player.position->z + halfXHitBox),
-                glm::vec3(player.position->x - halfXHitBox, correctedPosY, player.position->z + halfXHitBox),
-                glm::vec3(player.position->x - halfXHitBox, correctedPosY + player.hitBox.y, player.position->z - halfXHitBox),
-                glm::vec3(player.position->x + halfXHitBox, correctedPosY + player.hitBox.y, player.position->z - halfXHitBox),
-                glm::vec3(player.position->x + halfXHitBox, correctedPosY + player.hitBox.y, player.position->z + halfXHitBox),
-                glm::vec3(player.position->x - halfXHitBox, correctedPosY + player.hitBox.y, player.position->z + halfXHitBox)
+                glm::vec3(player.position.x - halfXHitBox, correctedPosY, player.position.z - halfXHitBox),
+                glm::vec3(player.position.x + halfXHitBox, correctedPosY, player.position.z - halfXHitBox),
+                glm::vec3(player.position.x + halfXHitBox, correctedPosY, player.position.z + halfXHitBox),
+                glm::vec3(player.position.x - halfXHitBox, correctedPosY, player.position.z + halfXHitBox),
+                glm::vec3(player.position.x - halfXHitBox, correctedPosY + player.hitBox.y, player.position.z - halfXHitBox),
+                glm::vec3(player.position.x + halfXHitBox, correctedPosY + player.hitBox.y, player.position.z - halfXHitBox),
+                glm::vec3(player.position.x + halfXHitBox, correctedPosY + player.hitBox.y, player.position.z + halfXHitBox),
+                glm::vec3(player.position.x - halfXHitBox, correctedPosY + player.hitBox.y, player.position.z + halfXHitBox)
             };
 
             glm::vec2 screenPoints[8];
