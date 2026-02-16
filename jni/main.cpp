@@ -27,33 +27,27 @@ namespace fs = ghc::filesystem;
 #include "ImGui/imgui.h"
 #include "ImGui/imgui_internal.h"
 #include "Includes/nlohmann/json.hpp"
+#include "Includes/json.h"
 
-// Cấu trúc dữ liệu và Biến (Quan trọng: variables phải đứng trước menu)
-#include "variables.h" 
+// Biến và Menu (Chỉ để ở đây, không lặp lại ở trên)
+#include "variables.h"
 #include "menu.h"
 
-// Các thư viện còn lại...
+// Android & Graphics
 #include <android/native_activity.h>
-#include "ImGui/backends/imgui_impl_android.h"
-#include "ImGui/backends/imgui_impl_opengl3.h"
+#include <android/asset_manager.h>
+#include <android/asset_manager_jni.h>
+#include <android/keycodes.h>
+#include <sys/system_properties.h>
 #include <EGL/egl.h>
 #include <GLES3/gl3.h>
-// ... (giữ nguyên phần stb_image và hook phía dưới)
+#include "ImGui/backends/imgui_impl_android.h"
+#include "ImGui/backends/imgui_impl_opengl3.h"
+
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 
-#include <android/asset_manager.h>
-#include <android/asset_manager_jni.h>
-
-#include <sys/system_properties.h>
-
-#include <string>
-#include <cmath>
-#include <android/keycodes.h>
-
-//====================================
-#include "ImGui/FONTS/DEFAULT.h"
-//=====================================
+// Hook & Memory
 #include <Includes/Utils.h>
 #include <Includes/Dobby/dobby.h>
 #if defined(__aarch64__)
@@ -67,9 +61,8 @@ namespace fs = ghc::filesystem;
 #include "ENCRYPT/oxorany.h"
 #include "RGB.h"
 #include "Chams.h"
-#include "Includes/nlohmann/json.hpp"
-#include "Includes/json.h"
 
+// Typedefs của bạn
 typedef uint32_t _DWORD;
 typedef uint64_t _QWORD;
 #define __int8 char
@@ -77,7 +70,6 @@ typedef uint64_t _QWORD;
 #define __int32 int
 #define __int64 long long
 #define _BYTE unsigned char
-
 
 using json = nlohmann::json;
 int screenWidth = 0;
