@@ -40,14 +40,17 @@ struct vec2_t {
 struct PlayerStruct {
     void* address;
     std::string nameTag;
-    std::string nickname; // Thêm cái này
+    std::string nickname;
     vec3_t position;
     vec3_t hitBox;
     float distance;
-    bool isBot;           // Thêm cái này
-    bool isFriend;        // Thêm cái này
-    bool isProtected;     // Thêm cái này
+    int health;           // Thêm dòng này để sửa lỗi player.health
+    int maxHealth;        // Thêm cái này nếu cần cho thanh máu
+    bool isBot;
+    bool isFriend;
+    bool isProtected;
 };
+
 // Khai báo giả (Forward Declaration) cho các class game
 class ClientInstance;
 class LocalPlayer;
