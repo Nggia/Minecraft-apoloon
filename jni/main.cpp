@@ -1,8 +1,5 @@
 #include <jni.h>
-#include <android/native_activity.h>
 #include <errno.h>
-#include "menu.h"
-
 #include <string.h>
 #include <unistd.h>
 #include <stdint.h>
@@ -11,27 +8,37 @@
 #include <stdio.h>
 #include <sstream>
 #include <vector>
+#include <string>
 #include <unordered_set>
 #include <random>
 #include <algorithm>
-#include <ghc/filesystem.hpp>
-namespace fs = ghc::filesystem;
-#include "glm/glm.hpp"
-#include "glm/gtc/matrix_transform.hpp"
-
+#include <cmath>
 #include <signal.h>
 #include <pthread.h>
 #include <codecvt>
 #include <chrono>
 #include <queue>
 
-#include "ImGui/imgui_internal.h"
+// Thư viện bên thứ ba
+#include <ghc/filesystem.hpp>
+namespace fs = ghc::filesystem;
+#include "glm/glm.hpp"
+#include "glm/gtc/matrix_transform.hpp"
 #include "ImGui/imgui.h"
+#include "ImGui/imgui_internal.h"
+#include "Includes/nlohmann/json.hpp"
+
+// Cấu trúc dữ liệu và Biến (Quan trọng: variables phải đứng trước menu)
+#include "variables.h" 
+#include "menu.h"
+
+// Các thư viện còn lại...
+#include <android/native_activity.h>
 #include "ImGui/backends/imgui_impl_android.h"
 #include "ImGui/backends/imgui_impl_opengl3.h"
-
 #include <EGL/egl.h>
 #include <GLES3/gl3.h>
+// ... (giữ nguyên phần stb_image và hook phía dưới)
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 
