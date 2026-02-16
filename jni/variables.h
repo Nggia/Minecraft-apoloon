@@ -21,7 +21,6 @@ using json = nlohmann::json;
 bool enableRainbow = false;
 bool panic = false;
 extern bool osmtBoost;
-bool enableRainbow = false;
 bool enableRainbowWall = false;
 bool xrayCaves = false;
 int chamsint = 0;
