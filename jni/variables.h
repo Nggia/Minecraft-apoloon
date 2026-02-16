@@ -18,6 +18,7 @@ struct vec3_t {
 using json = nlohmann::json;
 
 // Khai báo các biến bị thiếu để hết lỗi compile
+bool enableRainbow = false;
 bool panic = false;
 extern bool osmtBoost;
 bool enableRainbow = false;
