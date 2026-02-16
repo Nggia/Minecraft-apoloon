@@ -3,6 +3,14 @@
 #include "Images/Discord.h"
 #include "variables.h"
 #include "offsets.h"
+#include <GLES2/gl2.h>
+#include <GLES2/gl2ext.h>
+#include <cstdint>
+
+// Khai báo hàm nếu nó nằm ở file .cpp khác
+extern "C" {
+    unsigned int CreateTextureFromMemoryPNG(unsigned char* data, int len);
+}
 
 #include "Images/amethyst_shard.h"
 #include "Images/coal.h"
