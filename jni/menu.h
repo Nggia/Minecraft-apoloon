@@ -25,12 +25,12 @@
 extern float screenWidth, screenHeight;
 extern float redd, greenn, bluee;
 extern float scaleGlobal, calcResX;
-extern bool xrayDefault, deathPosition, esp;
+extern bool xrayDefault, deathPosition, esp, osmtBoost;
+extern vec3_t CameraPos;;
 extern bool osmtBoost;
 extern ImGuiWindow* g_window;
 extern void* currentViewMatrix;
 extern float currentFov;
-extern vec3_t CameraPos; 
 
 // --- 4. Khai báo các hàm giao diện ---
 void ImGuiColoredText(std::string text);
