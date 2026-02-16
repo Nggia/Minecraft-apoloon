@@ -36,7 +36,6 @@ struct vec2_t {
     vec2_t() : x(0), y(0) {}
 };
 
-// Thêm/Sửa trong jni/variables.h
 struct PlayerStruct {
     void* address;
     std::string nameTag;
@@ -44,8 +43,10 @@ struct PlayerStruct {
     vec3_t position;
     vec3_t hitBox;
     float distance;
-    int health;           // Thêm dòng này để sửa lỗi player.health
-    int maxHealth;        // Thêm cái này nếu cần cho thanh máu
+    int health;
+    int maxHealth;
+    int hurtTime;    // Thêm để fix lỗi player.hurtTime
+    int platform;    // Thêm để fix lỗi player.platform
     bool isBot;
     bool isFriend;
     bool isProtected;
@@ -665,4 +666,5 @@ void loadConfig(std::string path){
     visibleColorV.x = cfg.value("visibleColor.x", visibleColorV.x);
     visibleColorV.y = cfg.value("visibleColor.y", visibleColorV.y);
     visibleColorV.z = cfg.value("visibleColor.z", visibleColorV.z);
+	
 }
