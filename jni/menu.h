@@ -12,7 +12,21 @@ extern "C" {
     unsigned int CreateTextureFromMemoryPNG(unsigned char* data, int len);
 }
 
-// Định nghĩa đầy đủ cho các Class SDK
+// 1. Định nghĩa các Macro bảo mật và tiện ích
+#ifndef oxorany
+#define oxorany(str) str
+#endif
+
+#ifndef OBFUSCATE
+#define OBFUSCATE(str) str
+#endif
+
+// 2. Khai báo các hàm giao diện còn thiếu
+void ImGuiColoredText(std::string text);
+void insertionSortPlayers(std::vector<void*>& list); 
+void AddNotification(const char* text, float duration, ImVec4 color);
+
+// 3. Cấu trúc Class SDK (Sửa lỗi Incomplete Type)
 class LevelRendererCamera {
 public:
     glm::vec2 getFov();
@@ -27,25 +41,20 @@ public:
 class ClientInstance {
 public:
     LevelRenderer* getLevelRenderer();
+    glm::mat4 getViewMatrix(); 
 };
 
-// Khai báo lại các hàm vẽ (Dùng vec3_t hoặc glm::vec3 cho khớp với code của bạn)
-// Mình dùng void* để linh hoạt, nhưng phải sửa cách gọi hàm
-void RenderOreESP(ImDrawList* d, glm::vec3 pos, glm::vec2 fov, void* mat);
-void RenderDeathPosition(ImDrawList* d, glm::vec3 pos, glm::vec2 fov, void* mat);
-void RenderESP(ImDrawList* d, glm::vec3 pos, glm::vec2 fov, void* mat);
+// 4. Khai báo hàm ESP (Đồng bộ kiểu dữ liệu để không lỗi "No matching function")
+void RenderOreESP(ImDrawList* d, vec3_t pos, glm::vec2 fov, glm::mat4 mat);
+void RenderDeathPosition(ImDrawList* d, vec3_t pos, glm::vec2 fov, glm::mat4 mat);
+void RenderESP(ImDrawList* d, vec3_t pos, glm::vec2 fov, glm::mat4 mat);
+void DrawBackgroundText(const char* text, float x, float y, ImVec4 color, ImVec4 bgColor);
 
-// Khai báo các hàm bị thiếu ở cuối menu
-void performRGBChange();
-void Patches();
-
-// Khai báo các biến bị thiếu trong menu
-extern bool xrayDefault;
-extern bool deathPosition;
-extern bool esp;
-extern void* CameraPos;
-extern float currentFov;
-extern void* currentViewMatrix;
+// 5. Khai báo các biến hệ thống
+extern float screenWidth, screenHeight;
+extern float redd, greenn, bluee, scaleGlobal, calcResX;
+extern bool xrayDefault, deathPosition, esp;
+extern vec3_t CameraPos; // Chuyển từ void* sang vec3_t cho khớp logic
 
 #include "Images/amethyst_shard.h"
 #include "Images/coal.h"
