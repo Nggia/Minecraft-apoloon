@@ -61,6 +61,7 @@ namespace fs = ghc::filesystem;
 #include "ENCRYPT/oxorany.h"
 #include "RGB.h"
 #include "Chams.h"
+float calcResX = 1.0f; // Hoặc giá trị mặc định nào đó bạn đang dùng
 
 // Các định nghĩa kiểu dữ liệu (Typedefs)
 typedef uint32_t _DWORD;
