@@ -9,24 +9,25 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up JDK 17
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
 
+      # Cách setup NDK mới nhất và chuẩn nhất
       - name: Setup Android NDK
-        uses: nndemyanov/setup-ndk@v1
+        uses: nvioletti/setup-ndk@v1
         with:
           ndk-version: r25c
 
-      # BƯỚC QUAN TRỌNG: Tự động tải GLM chuẩn
+      # Tự động tải GLM (Giải quyết vụ 600 file và 0B)
       - name: Install GLM Library
         run: |
           cd jni
-          rm -rf glm  # Xóa folder glm cũ (nếu có) để tránh lỗi
+          rm -rf glm
           git clone --depth 1 https://github.com/g-truc/glm.git
           echo "GLM downloaded successfully!"
 
@@ -35,8 +36,14 @@ jobs:
           cd jni
           ndk-build
         env:
-          ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
+          ANDROID_NDK_HOME: ${{ env.ANDROID_NDK_HOME }}
 
+      # Dùng v4 để không bị lỗi Deprecated
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Apollon-SO
+          path: libs/
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
