@@ -98,7 +98,7 @@ const struct vec2_t {
 	float magnitude() const { return sqrtf(squaredlen()); }
 };
 
-const struct vec3_t {
+    struct vec3_t {
 	struct {
 		float x, y, z;
 	};
@@ -299,7 +299,7 @@ vec2_t CalcMobAngle(vec3_t dst, float hitboxHeight) const {
     }
 };
 
-const struct vec3_ti {
+ struct vec3_ti {
 	struct {
 		int x, y, z;
 	};
