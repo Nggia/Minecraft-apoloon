@@ -5,6 +5,18 @@
 
 using json = nlohmann::json;
 
+// Khai báo các biến bị thiếu để hết lỗi compile
+bool panic = false;
+float osmtBoost = 0.0f;
+bool enableRainbow = false;
+bool enableRainbowWall = false;
+bool xrayCaves = false;
+int chamsint = 0;
+
+struct ColorVec3 { float x, y, z; };
+ColorVec3 inWallColor = {1.0f, 1.0f, 1.0f};
+ColorVec3 visibleColor = {1.0f, 1.0f, 1.0f};
+
 // Định nghĩa các kiểu vector nếu chưa có
 struct vec2_t { float x, y; vec2_t(float _x, float _y) : x(_x), y(_y) {} vec2_t() : x(0), y(0) {} };
 struct vec3_t { float x, y, z; vec3_t(float _x, float _y, float _z) : x(_x), y(_y), z(_z) {} vec3_t() : x(0), y(0), z(0) {} };
