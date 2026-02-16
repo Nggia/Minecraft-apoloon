@@ -11,12 +11,14 @@
 #include "variables.h"
 #include "offsets.h"
 
-#ifndef oxorany
-#endif
-
-
 #ifndef OBFUSCATE
+#define OBFUSCATE(str) str
 #endif
+
+#ifndef oxorany
+#define oxorany(str) str
+#endif
+
 
 // --- 3. Khai báo mượn biến (Extern) từ main.cpp ---
 // Lưu ý: Tuyệt đối không gán giá trị (=) tại đây để tránh lỗi Redefinition
