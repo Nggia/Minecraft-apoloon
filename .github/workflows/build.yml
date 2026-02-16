@@ -17,13 +17,7 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      # Cách setup NDK mới nhất và chuẩn nhất
-      - name: Setup Android NDK
-        uses: nvioletti/setup-ndk@v1
-        with:
-          ndk-version: r25c
-
-      # Tự động tải GLM (Giải quyết vụ 600 file và 0B)
+      # Tự động tải GLM (Xóa sạch nợ nần với đống file 0B)
       - name: Install GLM Library
         run: |
           cd jni
@@ -31,21 +25,17 @@ jobs:
           git clone --depth 1 https://github.com/g-truc/glm.git
           echo "GLM downloaded successfully!"
 
+      # Sử dụng NDK có sẵn trong runner (Không cần tải qua action bên ngoài)
       - name: Build with ndk-build
         run: |
           cd jni
-          ndk-build
+          $ANDROID_NDK_LATEST_HOME/ndk-build
         env:
-          ANDROID_NDK_HOME: ${{ env.ANDROID_NDK_HOME }}
+          ANDROID_NDK_HOME: ${{ env.ANDROID_NDK_LATEST_HOME }}
 
-      # Dùng v4 để không bị lỗi Deprecated
+      # Dùng v4 để sửa lỗi "Deprecated"
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
-        with:
-          name: Apollon-SO
-          path: libs/
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v3
         with:
           name: Apollon-SO
           path: libs/
