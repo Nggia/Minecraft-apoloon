@@ -25,6 +25,13 @@ extern "C" {
 #include "Images/quartz.h"
 #include "Images/barrel_side.h"
 #include "Images/obsidian.h"
+// 1. Định nghĩa OBFUSCATE nếu chưa có (để máy không báo lỗi undeclared)
+#ifndef OBFUSCATE
+#define OBFUSCATE(str) str
+#endif
+
+// 2. Khai báo calcResX (Thường là một biến float được tính ở main.cpp)
+extern float calcResX;
 
 #include "Images/horse.h"
 #include "Images/villager.h"
