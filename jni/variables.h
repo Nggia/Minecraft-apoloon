@@ -657,7 +657,7 @@ void loadConfig(std::string path){
     inWallColor.x = cfg.value("inWallColor.x", inWallColor.x);
     inWallColor.y = cfg.value("inWallColor.y", inWallColor.y);
     inWallColor.z = cfg.value("inWallColor.z", inWallColor.z);
-    visibleColor.x = cfg.value("visibleColor.x", visibleColor.x);
-    visibleColor.y = cfg.value("visibleColor.y", visibleColor.y);
-    visibleColor.z = cfg.value("visibleColor.z", visibleColor.z);
+    visibleColorV.x = cfg.value("visibleColorV.x", visibleColorV.x);
+    visibleColorV.y = cfg.value("visibleColorV.y", visibleColorV.y);
+    visibleColorV.z = cfg.value("visibleColorV.z", visibleColorV.z);
 }
