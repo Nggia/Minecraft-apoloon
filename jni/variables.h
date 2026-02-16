@@ -1,3 +1,15 @@
+// Định nghĩa các kiểu vector nếu chưa có
+struct vec3_t { 
+    float x, y, z; 
+    vec3_t(float _x, float _y, float _z) : x(_x), y(_y), z(_z) {} 
+    vec3_t() : x(0), y(0), z(0) {} 
+    
+    // Thêm dòng này để biến vec3_t thành glm::vec3 khi cần
+    operator glm::vec3() const { return glm::vec3(x, y, z); }
+    // Thêm dòng này để nhận giá trị từ glm::vec3
+    vec3_t& operator=(const glm::vec3& v) { x = v.x; y = v.y; z = v.z; return *this; }
+};
+
 #pragma once
 #include <string>
 #include <vector>
@@ -21,18 +33,6 @@ struct vec2_t {
     float x, y;
     vec2_t(float _x, float _y) : x(_x), y(_y) {}
     vec2_t() : x(0), y(0) {}
-};
-
-// Định nghĩa các kiểu vector nếu chưa có
-struct vec3_t { 
-    float x, y, z; 
-    vec3_t(float _x, float _y, float _z) : x(_x), y(_y), z(_z) {} 
-    vec3_t() : x(0), y(0), z(0) {} 
-    
-    // Thêm dòng này để biến vec3_t thành glm::vec3 khi cần
-    operator glm::vec3() const { return glm::vec3(x, y, z); }
-    // Thêm dòng này để nhận giá trị từ glm::vec3
-    vec3_t& operator=(const glm::vec3& v) { x = v.x; y = v.y; z = v.z; return *this; }
 };
 
 // Thêm/Sửa trong jni/variables.h
@@ -157,22 +157,9 @@ const char* Hotkeys[] = {"OFF", "Panic", "Always Sprinting", "No SlowDown", "Fas
 const char* FogStatement[] = {"OFF", "Clear", "Weather", "Water", "Lava", "Lava (Fire Res)", "Powder Snow"};
 const char* AntiKBType[] = {"OFF", "Full", "Only Y"};
 
-struct PlayerStruct {
-	std::string nickname;
-	std::string nameTag;
-    vec3_t* position;
-	vec2_t hitBox;
-	int health;
-	int hurtTime;
-	int platform;
-    bool isProtected;
-	bool isFriend;
-	bool isBot;
-};
-
 struct XrayOres {
     std::string oreName;
-    vec3_ti orePos;
+    vec3_t orePos;
 	vec3_t orePosFloat;
     ImU32 oreColor;
 };
