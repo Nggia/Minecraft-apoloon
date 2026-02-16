@@ -6,13 +6,7 @@ float screenHeight = 0;
 float redd = 255.0f, greenn = 255.0f, bluee = 255.0f;
 float scaleGlobal = 1.0f;
 float calcResX = 1.0f;
-bool xrayDefault = false;
-bool deathPosition = false;
-bool esp = false;
-bool osmtBoost = false;
 
-// Biến bổ trợ
-vec3_t CameraPos(0, 0, 0);
 ImGuiWindow* g_window = nullptr;
 bool g_Initialized = false;
 void* currentViewMatrix = nullptr;
