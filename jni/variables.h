@@ -27,7 +27,7 @@ int chamsint = 0;
 
 struct ColorVec3 { float x, y, z; };
 ColorVec3 inWallColor = {1.0f, 1.0f, 1.0f};
-ColorVec3 visibleColor = {1.0f, 1.0f, 1.0f};
+ColorVec3 visibleColorV = {1.0f, 1.0f, 1.0f};
 
 struct vec2_t {
     float x, y;
