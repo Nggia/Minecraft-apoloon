@@ -1,14 +1,3 @@
-// Định nghĩa các kiểu vector nếu chưa có
-struct vec3_t { 
-    float x, y, z; 
-    vec3_t(float _x, float _y, float _z) : x(_x), y(_y), z(_z) {} 
-    vec3_t() : x(0), y(0), z(0) {} 
-    
-    // Thêm dòng này để biến vec3_t thành glm::vec3 khi cần
-    operator glm::vec3() const { return glm::vec3(x, y, z); }
-    // Thêm dòng này để nhận giá trị từ glm::vec3
-    vec3_t& operator=(const glm::vec3& v) { x = v.x; y = v.y; z = v.z; return *this; }
-};
 
 #pragma once
 #include <string>
