@@ -20,7 +20,6 @@ float currentFov = 70.0f;
 
 // Khai báo các hàm còn thiếu (Hàm giả để máy cho qua bước build)
 inline float calculateResolutionScale(float width, float height, int baseW, int baseH) { return 1.0f; }
-inline void BackGroundDots(int count, float s1, float s2, float s3) {}
 inline void DrawSeparatorToWindowEdge(ImVec2 pos, float thickness) {}
 
 #include <jni.h>
