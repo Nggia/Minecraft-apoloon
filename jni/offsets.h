@@ -1,89 +1,86 @@
-#pragma once  // Thêm dòng này vào đầu file
-enum Offsets {
+#pragma once
 
 #if defined(__aarch64__)
-namespace Offsets64 {
-	enum Offsets64 {
-		Font = 0x263C304,//Default 1 float
-		NoHurtCam = 0x5103870,//CameraBobSystem::tick
-		NoCamDistortion = 0xDF56A14,//CameraPortalDistortionSystem::_tick
-		NoBoatRotation = 0x5114BB8,//CameraVehicleRotationLookSystem::tick
-		NoCamSleep = 0xDF57550,//_tickSleepFade SUB
-		PlaceCamera = 0xE1DC87C,//CameraBlendSystem::_tick
-		WaterTrigger1 = 0x66578D8,//<WasInWaterFlagComponent,EntityId ActorHeadWasInWater
-		WaterTrigger2 = 0x93B7B9C,//<ActorHeadInWaterFlagComponent,EntityId SUB
-		WaterTrigger3 = 0x5E35F94,//<WaterSplashEffectRequestComponent,EntityId SUB
-		SlowDownTriggers = 0x954C0E4,//BlockMovementSlowdownMultiplierSystemImpl::applySlowdownOnMove sub
-		NoSlowDown = 0x945D230,//ItemUseSlowdownSystemImpl::doItemUseSlowdownSystem sub
-		WaterSpeed = 0x9E52A70,//(doWaterMoveSystem sub
-		LavaSpeed = 0x9407F30,//(doLavaMoveSystem sub
-		Noclip = 0x93D2760,//MoveCollisionSystem::System sub
-		XrayCameraThird = 0xE1DB2A4,//CameraAvoidanceSystem::tick
-		LavaDrown = 0x9DB9528,//MobMovementGravity::tickLavaGravity loc
-		WaterDrown = 0x9DB7558,//MobMovementGravity::tickPlayerWaterGravity loc
-		Fov = 0x7BBDB00,//9CameraAPI returns float
-		SpeedHack = 0x9498748,//doDefaultMoveSystems 2
-		JumpHack = 0x9D8D7F0,//return 0.42
-		Gravity = 0x9D88C20,//-0.08 float
-		AutoClickMine = 0xCCC2258,//8GameMode STP
-		FastBridge = 0xCCC3650,//"GameMode::useItemOn (client)"
-		BlockReach = 0xCCC4B70,//returns 7 or 12 float
-		PlayerAuthInput = 0xA772168,//"Player`s Head rotation"
-		NativeKeyHandler = 0xCFA5130,//...nativeKeyHandler
-
-		InMainMenu = 0x6086AB4,//23CubemapBackgroundScreen
-		InLanGame1 = 0xE26A008,//NetherNet::SimpleNetworkInterfaceImpl::SendPacket
-		InLanGame2 = 0xE26A234,//NetherNet::SimpleNetworkInterfaceImpl::ReadPacket
-
-		FastDrop = 0x6358EDC,//GuiData::_tickItemDrop intertnal float field
-		UnlockMarket = 0x76CF620,//Entitlement::isOwned
-		GetMaxPlayers = 0xE14C3C4,//AppPlatform::getMaxPlayers
-		FogState = 0x7C08F08,//LevelRendererCamera::_getFogDensitySettingType
-		SetupFog = 0x7C00420,//LevelRendererPlayer::setupFog
-		FullBright = 0x6C6B95C,//BaseOptions::getGamma
-		ForEachActivePlayer = 0xCE9B8F4,//GameplayUserManager::forEachActivePlayer
-		GetRuntimeActor = 0xD6B0D68,//Level::getRuntimeActorList
-		IsAttackable = 0xC95B500,//Actor::isAttackableGamemode
-		Attack = 0xCCC075C,//GameMode::_attack
-		LerpMotion = 0xC947CDC,//Actor::lerpMotion
-		NormalTick = 0x6BEDA24,//LocalPlayer::normalTick
-		Swing = 0x6BF031C,//LocalPlayer::swing
-		SetSprinting = 0x6BF05B8,//LocalPlayer::setSprinting
-		GetEntityTypeId = 0xC937698,//Actor::getEntityTypeId
-		GetHealth = 0xC9437D0,//Actor::getHealth
-		SetClimbing = 0xC945610,//Actor::setClimbing
-		SetYHeadRot = 0xC95AF30,//Actor::setYHeadRot
-		SetYBodyRot = 0xC86C5D4,//Mob::setYBodyRotation
-		SetInvisible = 0xC9597B8,//Actor::setInvisible
-		Intersects = 0xC94727C,//Actor::intersects
-		GetYHeadRot = 0xC95AE58,//Actor::getYHeadRot
-		InitMaxAutoStep = 0xC956C54,//Actor::_initializeMaxAutoStep
-		GetAABBDim = 0xC93AE58,//Actor::getAABBDim
-		IsEmoting = 0xCE072A8,//Player::isEmoting
-		NoBlur1 = 0x7BBE1E4,//FullScreenEffectRenderer::renderHeadlocked
-		NoBlur2 = 0x7BBEAB4,//FullScreenEffectRenderer::render
-		ShowPaperdoll = 0x6373FB8,//HudPlayerRenderer::update
-		Subtitle = 0x63164C4,//TileMessage::setSubtitle
-		GetAbilities = 0xCDF943C,//Player::getAbilities
-		GetLayer = 0xCDF9450,//LayeredAbilities::getLayer
-		SetAbility = 0xCDF87E0,//Abilities::setAbility
-		ClientInstanceOnTick = 0x6478734,//ClientInstance::onTick
-		HandleDestroyOrAttack = 0x6462B60,//ClientInputCallbacks::handleDestoryOrAttackButtonPress
-		PlayUI = 0x648AED8,//ClientInstance::playUI
-		SetNoJumpDelay = 0xCDDB410,//MobJump::setNoJumpDelay
-		SetOnGround = 0x6F42DFC,//ActorEntityAccess::addOrRemoveComponent<OnGroundFlagComponent>
-		MobIsJumping = 0xCDD8840,//ActorEntityAccess::addOrRemoveComponent<FlagComponent<MobIsJumpingFlag>>
-		DisplayMessage = 0x6BF196C,//LocalPlayer::displayClientMessage
-		Block_getRenderLayer = 0xD52E0F4,//Block::getRenderLayer
-		RebuildAllChunkGeometry = 0x7BF10A8,//LevelRenderer::rebuildAllRenderChunkGeometry
-		VignetteRenderer = 0x6376084,//HudVignetteRenderer::render
-		NoNametags = 0x6AEE80C,//BaseActorRenderer::renderText
-		ScreenName = 0x648482C,//ClientInstance::getScreenName
-		GetNameTag = 0xC94C468,//Actor::getNameTag
-		GetDimensionBlockSource = 0xC9318F0,//Actor::getDimensionBlockSource
-		GetBlock = 0xCEE4E74,//BlockSource::getBlock
-		IsAir = 0xCFA78FC,//Block::isAir
-	};
+namespace Offsets {
+    enum Fields {
+        Font = 0x263C304,
+        NoHurtCam = 0x5103870,
+        NoCamDistortion = 0xDF56A14,
+        NoBoatRotation = 0x5114BB8,
+        NoCamSleep = 0xDF57550,
+        PlaceCamera = 0xE1DC87C,
+        WaterTrigger1 = 0x66578D8,
+        WaterTrigger2 = 0x93B7B9C,
+        WaterTrigger3 = 0x5E35F94,
+        SlowDownTriggers = 0x954C0E4,
+        NoSlowDown = 0x945D230,
+        WaterSpeed = 0x9E52A70,
+        LavaSpeed = 0x9407F30,
+        Noclip = 0x93D2760,
+        XrayCameraThird = 0xE1DB2A4,
+        LavaDrown = 0x9DB9528,
+        WaterDrown = 0x9DB7558,
+        Fov = 0x7BBDB00,
+        SpeedHack = 0x9498748,
+        JumpHack = 0x9D8D7F0,
+        Gravity = 0x9D88C20,
+        AutoClickMine = 0xCCC2258,
+        FastBridge = 0xCCC3650,
+        BlockReach = 0xCCC4B70,
+        PlayerAuthInput = 0xA772168,
+        NativeKeyHandler = 0xCFA5130,
+        InMainMenu = 0x6086AB4,
+        InLanGame1 = 0xE26A008,
+        InLanGame2 = 0xE26A234,
+        FastDrop = 0x6358EDC,
+        UnlockMarket = 0x76CF620,
+        GetMaxPlayers = 0xE14C3C4,
+        FogState = 0x7C08F08,
+        SetupFog = 0x7C00420,
+        FullBright = 0x6C6B95C,
+        ForEachActivePlayer = 0xCE9B8F4,
+        GetRuntimeActor = 0xD6B0D68,
+        IsAttackable = 0xC95B500,
+        Attack = 0xCCC075C,
+        LerpMotion = 0xC947CDC,
+        NormalTick = 0x6BEDA24,
+        Swing = 0x6BF031C,
+        SetSprinting = 0x6BF05B8,
+        GetEntityTypeId = 0xC937698,
+        GetHealth = 0xC9437D0,
+        SetClimbing = 0xC945610,
+        SetYHeadRot = 0xC95AF30,
+        SetYBodyRot = 0xC86C5D4,
+        SetInvisible = 0xC9597B8,
+        Intersects = 0xC94727C,
+        GetYHeadRot = 0xC95AE58,
+        InitMaxAutoStep = 0xC956C54,
+        GetAABBDim = 0xC93AE58,
+        IsEmoting = 0xCE072A8,
+        NoBlur1 = 0x7BBE1E4,
+        NoBlur2 = 0x7BBEAB4,
+        ShowPaperdoll = 0x6373FB8,
+        Subtitle = 0x63164C4,
+        GetAbilities = 0xCDF943C,
+        GetLayer = 0xCDF9450,
+        SetAbility = 0xCDF87E0,
+        ClientInstanceOnTick = 0x6478734,
+        HandleDestroyOrAttack = 0x6462B60,
+        PlayUI = 0x648AED8,
+        SetNoJumpDelay = 0xCDDB410,
+        SetOnGround = 0x6F42DFC,
+        MobIsJumping = 0xCDD8840,
+        DisplayMessage = 0x6BF196C,
+        Block_getRenderLayer = 0xD52E0F4,
+        RebuildAllChunkGeometry = 0x7BF10A8,
+        VignetteRenderer = 0x6376084,
+        NoNametags = 0x6AEE80C,
+        ScreenName = 0x648482C,
+        GetNameTag = 0xC94C468,
+        GetDimensionBlockSource = 0xC9318F0,
+        GetBlock = 0xCEE4E74,
+        IsAir = 0xCFA78FC
+    };
 }
 
 namespace Fields64 {
