@@ -691,7 +691,7 @@ void RenderOreESP(ImDrawList* draw_list, vec3_t cameraPos, glm::vec2 axisFov, gl
         
         if (!allVisible) continue;
 
-        vec3_ti pos = ore.orePos;
+        vec3_ti pos = {(int)ore.orePos.x, (int)ore.orePos.y, (int)ore.orePos.z};
 
         auto hasBlockAt = [&](int x, int y, int z) -> bool {
             for (XrayOres &otherOre : renderOresESP) {
