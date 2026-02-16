@@ -15,9 +15,6 @@ static void *input;
 extern bool enableRainbow, enableRainbowWall, osmtBoost, xrayCaves, panic;
 extern int chamsint;
 
-ImVec4 inWallColor = ImVec4(1.0f, 0.0f, 0.0f, 1.0f);                       
-ImVec4 visibleColor = ImVec4(0.0f, 1.0f, 0.0f, 1.0f);
-
 //GL pointers
 void (*p_glGetIntegerv)(unsigned int, int *);
 void (*p_glGetBooleanv)(unsigned int, unsigned char *);
