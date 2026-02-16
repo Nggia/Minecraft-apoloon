@@ -39,24 +39,6 @@ void DrawBackgroundText(const char* text, float x, float y, ImVec4 color, ImVec4
 void performRGBChange();
 void Patches();
 
-// --- 5. Cấu trúc Class SDK Minecraft ---
-class LevelRendererCamera {
-public:
-    glm::vec2 getFov();
-    glm::vec3 getCameraPos();
-};
-
-class LevelRenderer {
-public:
-    LevelRendererCamera* getLevelRendererPlayer();
-};
-
-class ClientInstance {
-public:
-    LevelRenderer* getLevelRenderer();
-    glm::mat4 getViewMatrix(); 
-};
-
 // --- 6. Khai báo hàm vẽ ESP ---
 void RenderOreESP(ImDrawList* d, vec3_t pos, glm::vec2 fov, glm::mat4 mat);
 void RenderDeathPosition(ImDrawList* d, vec3_t pos, glm::vec2 fov, glm::mat4 mat);
