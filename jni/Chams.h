@@ -12,9 +12,8 @@
 using namespace std;
 static void *handle;
 static void *input;
-static bool enableRainbow, enableRainbowWall, osmtBoost, xrayCaves, panic;
-
-int chamsint = 0;
+extern bool enableRainbow, enableRainbowWall, osmtBoost, xrayCaves, panic;
+extern int chamsint;
 
 ImVec4 inWallColor = ImVec4(1.0f, 0.0f, 0.0f, 1.0f);                       
 ImVec4 visibleColor = ImVec4(0.0f, 1.0f, 0.0f, 1.0f);
