@@ -97,7 +97,7 @@ void new_glDrawElementsInstanced(unsigned int mode, int count, unsigned int type
         if (chamsint == 2) {
             old_glDrawElementsInstanced(mode, count, type, indices, instancecount);
             p_glDepthRangef(1, 0.5);
-            p_glBlendColor(visibleColor.x, visibleColor.y, visibleColor.z, 1);
+            p_glBlendColor(visibleColorV.x, visibleColorV.y, visibleColorV.z, 1);
             p_glEnable(GL_BLEND);
             p_glBlendFunc(GL_ONE, GL_CONSTANT_COLOR);
             old_glDrawElementsInstanced(mode, count, type, indices, instancecount);
@@ -106,7 +106,7 @@ void new_glDrawElementsInstanced(unsigned int mode, int count, unsigned int type
         if (chamsint == 3) {
             old_glDrawElementsInstanced(mode, count, type, indices, instancecount);
             p_glDepthRangef(1, 0.5);
-            p_glBlendColor(visibleColor.x, visibleColor.y, visibleColor.z, 1);
+            p_glBlendColor(visibleColorV.x, visibleColorV.y, visibleColorV.z, 1);
             p_glEnable(GL_BLEND);
             p_glBlendFunc(GL_CONSTANT_COLOR, GL_CONSTANT_ALPHA);
             p_glLineWidth(1);
@@ -122,7 +122,7 @@ void new_glDrawElementsInstanced(unsigned int mode, int count, unsigned int type
             p_glBlendColor(0, 0, 0, 1);
             old_glDrawElementsInstanced(mode, count, type, indices, instancecount);
             p_glDepthRangef(1, 0.5);
-            p_glBlendColor(visibleColor.x, visibleColor.y, visibleColor.z, 1);
+            p_glBlendColor(visibleColorV.x, visibleColorV.y, visibleColorV.z, 1);
             old_glDrawElementsInstanced(GL_LINES, count, type, indices, instancecount);
         }
 
@@ -130,7 +130,7 @@ void new_glDrawElementsInstanced(unsigned int mode, int count, unsigned int type
             p_glEnable(GL_BLEND);
             p_glBlendFunc(GL_CONSTANT_COLOR, GL_CONSTANT_ALPHA);
             p_glLineWidth(10);
-            p_glBlendColor(visibleColor.x, visibleColor.y, visibleColor.z, 1);
+            p_glBlendColor(visibleColorV.x, visibleColorV.y, visibleColorV.z, 1);
             p_glDepthRangef(0.5, 1);
             old_glDrawElementsInstanced(GL_LINES, count, type, indices, instancecount);
             p_glBlendFunc(GL_ONE_MINUS_CONSTANT_COLOR, GL_ONE_MINUS_CONSTANT_ALPHA);
@@ -147,7 +147,7 @@ void new_glDrawElementsInstanced(unsigned int mode, int count, unsigned int type
             old_glDrawElementsInstanced(mode, count, type, indices, instancecount);
             p_glEnable(GL_DEPTH_TEST);
             p_glDepthRangef(0.5, 1);
-            p_glBlendColor(visibleColor.x, visibleColor.y, visibleColor.z, 1);
+            p_glBlendColor(visibleColorV.x, visibleColorV.y, visibleColorV.z, 1);
             old_glDrawElementsInstanced(mode, count, type, indices, instancecount);
         }
 
@@ -159,7 +159,7 @@ void new_glDrawElementsInstanced(unsigned int mode, int count, unsigned int type
             old_glDrawElementsInstanced(mode, count, type, indices, instancecount);
             p_glEnable(GL_DEPTH_TEST);
             p_glDepthRangef(0.5, 1);
-            p_glBlendColor(visibleColor.x, visibleColor.y, visibleColor.z, 1);
+            p_glBlendColor(visibleColorV.x, visibleColorV.y, visibleColorV.z, 1);
             p_glLineWidth(10);
             old_glDrawElementsInstanced(GL_LINES, count, type, indices, instancecount);
             p_glBlendFunc(GL_ONE_MINUS_CONSTANT_COLOR, GL_ONE_MINUS_CONSTANT_ALPHA);
