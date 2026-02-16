@@ -1178,7 +1178,7 @@ void BeginDraw() {
 		if (!inMenu && !panic) {
 			if (inHudScreen) {
 				glm::mat4 currentViewMatrix = CI->getViewMatrix();
-                LevelRenderer *Render = CI->getLevelRenderer();
+                class LevelRenderer *Render = CI->getLevelRenderer();
                 if (Render) {
                     LevelRendererCamera *RenderPlayer = Render->getLevelRendererPlayer();
                     if (RenderPlayer) {
