@@ -4,7 +4,6 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE    := Apollon
 
-# Liệt kê chính xác các file .cpp cần biên dịch
 LOCAL_SRC_FILES := main.cpp \
                    ImGui/imgui.cpp \
                    ImGui/imgui_draw.cpp \
@@ -18,8 +17,8 @@ LOCAL_SRC_FILES := main.cpp \
 
 LOCAL_LDLIBS := -llog -lGLESv2 -lEGL -landroid
 LOCAL_CPPFLAGS  := -std=c++17 -fexceptions -frtti -Wno-error=format-security
+LOCAL_CFLAGS    := -DIMGUI_IMPL_OPENGL_ES2
 
-# Khai báo tất cả các folder để tìm file .h (Khớp với ảnh bạn vừa chụp)
 LOCAL_C_INCLUDES := $(LOCAL_PATH) \
                     $(LOCAL_PATH)/ImGui \
                     $(LOCAL_PATH)/Includes \
