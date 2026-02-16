@@ -12,12 +12,10 @@
 #include "offsets.h"
 
 #ifndef oxorany
-#define oxorany(str) str
 #endif
 
 
 #ifndef OBFUSCATE
-#define OBFUSCATE(str) str
 #endif
 
 // --- 3. Khai báo mượn biến (Extern) từ main.cpp ---
