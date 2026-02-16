@@ -76,6 +76,12 @@ extern float calcResX;
 #include "Images/zombie_piglin.h"
 #include "Images/zombie_villager.h"
 
+float screenWidth = 1920.0f;
+float screenHeight = 1080.0f;
+float redd = 255.0f, greenn = 255.0f, bluee = 255.0f;
+float scaleGlobal = 1.0f;
+ImGuiWindow* g_window = nullptr;
+
 void TickFunctions() {
 	if (auraType < 2) {
 		if (maxKillTick > currentKillTick && !canKillAuraDamage) {
